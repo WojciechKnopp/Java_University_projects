@@ -16,6 +16,6 @@ public class Main {
             if(n < 1) System.out.println("To nie jest liczba naturalna!");
         }while(n < 1);
 
-        Wzor.narysuj(n);
+        System.out.println(Pattern.draw(n));
     }
 }

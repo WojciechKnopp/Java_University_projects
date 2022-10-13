@@ -3,23 +3,26 @@ import java.util.ArrayList;
 public class Main{
     public static void main(String[] args) {
 
-        //int n = 1;     //LICZBA ARMSTRONGA
+        //int n = 1;     //ARMSTRONG NUMBER
         //int n = 10;
         //int n = 123;
-        int n = 153;   //LICZBA ARMSTRONGA
-        double dlugosc = 0;
-        int wynik = 0;
-        ArrayList<Integer> cyfry = new ArrayList<>();
+        int n = 153;   //ARMSTRONG NUMBER
+        System.out.println(isArmstrong(n));
+    }
 
-        for(int i=n; i>0; dlugosc++, i/=10){
-            cyfry.add(i%10);
+    public static boolean isArmstrong(int n){
+        double length = 0;
+        int result = 0;
+        ArrayList<Integer> numbers = new ArrayList<>();
+
+        for(int i = n; i>0; length++, i/=10){
+            numbers.add(i%10);
         }
 
-        for(int i=cyfry.size(); i>0; i--){
-            wynik+= Math.pow(cyfry.get(i-1), dlugosc);
+        for(int i=numbers.size(); i>0; i--){
+            result+= Math.pow(numbers.get(i-1), length);
         }
-
-        if(wynik==n) System.out.println(true);
-        else System.out.println(false);
+        if(result==n) return true;
+        return false;
     }
 }
