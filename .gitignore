@@ -23,7 +23,7 @@ gradle-app.setting
 .mtj.tmp/
 
 # Package Files #
-*.jar
+#*.jar
 *.war
 *.ear
 
@@ -104,3 +104,7 @@ Icon
 Network Trash Folder
 Temporary Items
 .apdisk
+
+#MY MODIFICATIONS
+/.idea/
+*.iml
