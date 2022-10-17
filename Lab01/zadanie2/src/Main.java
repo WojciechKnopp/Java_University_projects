@@ -1,28 +1,8 @@
-import java.util.ArrayList;
-
 public class Main{
     public static void main(String[] args) {
-
-        //int n = 1;     //ARMSTRONG NUMBER
-        //int n = 10;
-        //int n = 123;
-        int n = 153;   //ARMSTRONG NUMBER
-        System.out.println(isArmstrong(n));
-    }
-
-    public static boolean isArmstrong(int n){
-        double length = 0;
-        int result = 0;
-        ArrayList<Integer> numbers = new ArrayList<>();
-
-        for(int i = n; i>0; length++, i/=10){
-            numbers.add(i%10);
-        }
-
-        for(int i=numbers.size(); i>0; i--){
-            result+= Math.pow(numbers.get(i-1), length);
-        }
-        if(result==n) return true;
-        return false;
+        System.out.println(Armstrong.isArmstrong(1));
+        System.out.println(Armstrong.isArmstrong(10));
+        System.out.println(Armstrong.isArmstrong(123));
+        System.out.println(Armstrong.isArmstrong(153));
     }
 }

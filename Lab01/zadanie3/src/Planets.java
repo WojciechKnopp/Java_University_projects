@@ -1,19 +1,19 @@
 public enum Planets {
-    MERKURY (31557600 * 0.2408467),
-    WENUS (31557600 * 0.61519726),
-    ZIEMIA (31557600),
-    MARS (31557600 * 1.8808158),
-    JOWISZ (31557600 * 11.862615),
-    SATURN (31557600 * 29.447498),
-    URAN (31557600 * 84.016846),
-    NEPTUN (31557600 * 164.79132);
+    MERKURY (0.2408467),
+    WENUS (0.61519726),
+    ZIEMIA (1),
+    MARS (1.8808158),
+    JOWISZ (11.862615),
+    SATURN (29.447498),
+    URAN (84.016846),
+    NEPTUN (164.79132);
 
-    private final double year;
-    Planets(double year){
-        this.year = year;
+    private final double multiplier;
+    Planets(double multiplier){
+        this.multiplier = multiplier;
     }
 
     public double ageOnPlanet(int age){
-        return age/year;
+        return age/(31557600* multiplier);
     }
 }
