@@ -10,6 +10,7 @@ public class Main {
             stats.addValue(data[i]);
         }
 
+
         System.out.println(Compute.mean(stats));
         System.out.println(Compute.standardDeviation(stats));
         System.out.println(Compute.variance(stats));
