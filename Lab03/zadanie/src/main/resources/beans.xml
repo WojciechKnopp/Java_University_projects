@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="person1" class="pl.edu.ug.wknopp.javae.lab03.zadanie.domain.Person">
+    </bean>
+    <bean id="person2" class="pl.edu.ug.wknopp.javae.lab03.zadanie.domain.Person">
+    </bean>
+    <bean id="person3" class="pl.edu.ug.wknopp.javae.lab03.zadanie.domain.Person">
+    </bean>
+    <bean id="person4" class="pl.edu.ug.wknopp.javae.lab03.zadanie.domain.Person">
+    </bean>
+    <bean id="person5" class="pl.edu.ug.wknopp.javae.lab03.zadanie.domain.Person">
+    </bean>
+    <bean id="person6" class="pl.edu.ug.wknopp.javae.lab03.zadanie.domain.Person">
+    </bean>
+    <bean id="person7" class="pl.edu.ug.wknopp.javae.lab03.zadanie.domain.Person">
+    </bean>
+    <bean id="person8" class="pl.edu.ug.wknopp.javae.lab03.zadanie.domain.Person">
+    </bean>
+    <bean id="person9" class="pl.edu.ug.wknopp.javae.lab03.zadanie.domain.Person">
+    </bean>
+    <bean id="person10" class="pl.edu.ug.wknopp.javae.lab03.zadanie.domain.Person">
+    </bean>
+    <bean id="addPerson" class="pl.edu.ug.wknopp.javae.lab03.zadanie.domain.Person">
+    </bean>
+</beans>
