@@ -9,7 +9,6 @@ import pl.edu.ug.wknopp.javae.lab03.zadanie.service.Data;
 
 import java.io.IOException;
 import java.util.LinkedHashMap;
-import java.util.SortedMap;
 
 @SpringBootApplication
 @ImportResource("classpath:beans.xml")
@@ -20,11 +19,7 @@ public class ZadanieApplication {
 
 		try {
 			LinkedHashMap<String, Person> people = Data.parseData(Data.sendGet(), applicationContext);
-
-			for (SortedMap.Entry<String, Person> entry : people.entrySet()) {
-				System.out.println(entry.getKey() + " " + entry.getValue());
-			}
-
+			people.forEach((k, v) -> System.out.println(k + " " + v));
 
 		} catch (IOException e) {
 			System.out.println("Could not connect to website");
