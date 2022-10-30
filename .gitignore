@@ -110,3 +110,5 @@ Temporary Items
 *.iml
 gradlew.bat
 gradle/
+!settings.gradle
+!build.gradle
