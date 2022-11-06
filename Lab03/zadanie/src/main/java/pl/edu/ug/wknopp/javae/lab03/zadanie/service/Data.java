@@ -22,9 +22,9 @@ public class Data {
     Data(){
         System.out.println("Data object created");
     }
-    public static String sendGet() throws IOException {
+    public static String sendGet(String url) throws IOException {
         CloseableHttpClient httpClient = HttpClients.createDefault();
-        HttpGet request = new HttpGet("https://stepik.org/media/attachments/lesson/266646/MOCK_DATA.csv");
+        HttpGet request = new HttpGet(url);
         CloseableHttpResponse httpResponse = httpClient.execute(request);
 
         try{
