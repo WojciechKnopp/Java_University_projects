@@ -12,4 +12,10 @@ public class AppConfig {
     public Person newPerson(){
         return new Person();
     }
+
+    @Bean
+    @Scope("singleton")
+    public Person newPerson2(){
+        return new Person();
+    }
 }

@@ -8,7 +8,7 @@ import pl.edu.ug.wknopp.javae.lab03.zadanie.domain.Person;
 @Component
 public class PersonManagerService {
     private final Person examplePerson;
-    public PersonManagerService(@Autowired @Qualifier("addPerson") Person person){
+    public PersonManagerService(@Autowired @Qualifier("newPerson2") Person person){
         this.examplePerson = person;
     }
 
