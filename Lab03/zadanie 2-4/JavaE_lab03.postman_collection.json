@@ -1,0 +1,126 @@
+{
+	"info": {
+		"_postman_id": "997cc554-28e1-43f2-9e53-072d85c75e99",
+		"name": "JavaE lab03",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24379158"
+	},
+	"item": [
+		{
+			"name": "http://localhost:8080/persons/Jere",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/persons/Jere",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"persons",
+						"Jere"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/persons/Andrzej",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"firstName\": \"Andrzej\",\n    \"lastName\": \"Kowalski\",\n    \"email\": \"example@email.com\",\n    \"companyName\": \"EverybodysCompany\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/persons/Andrzej",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"persons",
+						"Andrzej"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/persons",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"firstName\": \"Andrzej\",\n    \"lastName\": \"Kowalski\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/persons",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"persons"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/persons/Jillian",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/persons/Jillian",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"persons",
+						"Jillian"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/persons",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/persons",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"persons"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
