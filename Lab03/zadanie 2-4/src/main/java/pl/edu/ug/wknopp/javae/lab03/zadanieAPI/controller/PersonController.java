@@ -1,7 +1,9 @@
-package pl.edu.ug.wknopp.javae.lab03.zadanieAPI.service;
+package pl.edu.ug.wknopp.javae.lab03.zadanieAPI.controller;
 
 import org.springframework.web.bind.annotation.*;
 import pl.edu.ug.wknopp.javae.lab03.zadanieAPI.domain.Person;
+import pl.edu.ug.wknopp.javae.lab03.zadanieAPI.service.Data;
+import pl.edu.ug.wknopp.javae.lab03.zadanieAPI.service.PersonService;
 
 import java.util.List;
 
