@@ -1,4 +1,4 @@
-package pl.edu.ug.wknopp.javae.lab03.zadanieAPI.controller;
+package pl.edu.ug.wknopp.javae.lab03.zadanieAPI.service;
 
 import org.springframework.web.bind.annotation.*;
 import pl.edu.ug.wknopp.javae.lab03.zadanieAPI.domain.Person;
@@ -15,18 +15,18 @@ public class PersonController implements PersonService {
         db = Data.parseData();
     }
 
-    @PostMapping("/persons")
+    @PostMapping("/api/persons")
     public Person addPerson(@RequestBody Person person) {
         db.add(person);
         return person;
     }
 
-    @GetMapping("/persons")
+    @GetMapping("/api/persons")
     public List<Person> getAllPersons() {
         return db;
     }
 
-    @GetMapping("/persons/{firstName}")
+    @GetMapping("/api/persons/{firstName}")
     public Person getPerson(@PathVariable String firstName){
         for(Person person : db){
             if(person.getFirstName().equals(firstName)){
@@ -36,7 +36,7 @@ public class PersonController implements PersonService {
         return null;
     }
 
-    @PutMapping("/persons/{firstName}")
+    @PutMapping("/api/persons/{firstName}")
     public Person updatePerson(@PathVariable String firstName,@RequestBody Person person){
         for(Person p : db){
             if(p.getFirstName().equals(firstName)){
@@ -52,7 +52,7 @@ public class PersonController implements PersonService {
         return null;
     }
 
-    @DeleteMapping("/persons/{firstName}")
+    @DeleteMapping("/api/persons/{firstName}")
     public Person deletePerson(@PathVariable String firstName){
         Person personToDelete = null;
         for(Person person : db){

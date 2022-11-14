@@ -7,18 +7,18 @@ import java.util.List;
 
 public interface PersonService {
 
-    @GetMapping("/persons")
+    @GetMapping("/api/persons")
     List<Person> getAllPersons();
 
-    @GetMapping("/persons/{firstName}")
+    @GetMapping("/api/persons/{firstName}")
     Person getPerson(@PathVariable String firstName);
 
-    @PostMapping("/persons")
+    @PostMapping("/api/persons")
     Person addPerson(Person person);
 
-    @PutMapping("/persons/{firstName}")
+    @PutMapping("/api/persons/{firstName}")
     Person updatePerson(@PathVariable String firstName, Person person);
 
-    @DeleteMapping("/persons/{firstName}")
+    @DeleteMapping("/api/persons/{firstName}")
     Person deletePerson(@PathVariable String firstName);
 }
