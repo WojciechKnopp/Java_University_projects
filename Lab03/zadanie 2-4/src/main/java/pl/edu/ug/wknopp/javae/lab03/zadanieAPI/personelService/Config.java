@@ -4,6 +4,8 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import pl.edu.ug.wknopp.javae.lab03.zadanieAPI.domain.Person;
 
+import java.util.UUID;
+
 @Configuration
 public class Config {
     @Bean

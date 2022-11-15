@@ -1,33 +1,23 @@
 package pl.edu.ug.wknopp.javae.lab03.zadanieAPI.service;
 
-import org.springframework.web.bind.annotation.*;
+import org.springframework.stereotype.Component;
 import pl.edu.ug.wknopp.javae.lab03.zadanieAPI.domain.Person;
-import pl.edu.ug.wknopp.javae.lab03.zadanieAPI.service.Data;
-import pl.edu.ug.wknopp.javae.lab03.zadanieAPI.service.PersonService;
 
+import java.util.ArrayList;
 import java.util.List;
 
-@RestController
-public class PersonController implements PersonService {
+@Component
+public class PersonServiceInMemory implements PersonService {
 
-    private final List<Person> db;
-    PersonController(){
-        db = Data.parseData();
-    }
-
-    @PostMapping("/api/persons")
-    public Person addPerson(@RequestBody Person person) {
-        db.add(person);
-        return person;
-    }
-
-    @GetMapping("/api/persons")
+    //private final List<Person> db = Data.parseData();
+    private final List<Person> db = new ArrayList<>();
+    @Override
     public List<Person> getAllPersons() {
         return db;
     }
 
-    @GetMapping("/api/persons/{firstName}")
-    public Person getPerson(@PathVariable String firstName){
+    @Override
+    public Person getPerson(String firstName) {
         for(Person person : db){
             if(person.getFirstName().equals(firstName)){
                 return person;
@@ -36,8 +26,14 @@ public class PersonController implements PersonService {
         return null;
     }
 
-    @PutMapping("/api/persons/{firstName}")
-    public Person updatePerson(@PathVariable String firstName,@RequestBody Person person){
+    @Override
+    public Person addPerson(Person person) {
+        db.add(person);
+        return person;
+    }
+
+    @Override
+    public Person updatePerson(String firstName, Person person) {
         for(Person p : db){
             if(p.getFirstName().equals(firstName)){
                 p.setId(person.getId());
@@ -52,8 +48,8 @@ public class PersonController implements PersonService {
         return null;
     }
 
-    @DeleteMapping("/api/persons/{firstName}")
-    public Person deletePerson(@PathVariable String firstName){
+    @Override
+    public boolean deletePerson(String firstName) {
         Person personToDelete = null;
         for(Person person : db){
             if(person.getFirstName().equals(firstName)){
@@ -62,8 +58,9 @@ public class PersonController implements PersonService {
         }
         if(personToDelete != null){
             db.remove(personToDelete);
+            return true;
         }
-        return personToDelete;
+        return false;
     }
 }
 
