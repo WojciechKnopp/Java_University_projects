@@ -59,10 +59,10 @@ public class HouseServiceInMemory implements HouseService{
 
     @Override
     public boolean deleteHouse(String id){
-        if(getHouse(id) == null){
+        House houseToDelete = getHouse(id);
+        if(houseToDelete == null){
             return false;
         }
-        House houseToDelete = getHouse(id);
         return db.remove(houseToDelete);
     }
 }
