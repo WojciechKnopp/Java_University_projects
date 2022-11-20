@@ -9,7 +9,6 @@ import java.util.List;
 @Component
 public class PersonServiceInMemory implements PersonService {
 
-    //private final List<Person> db = Data.parseData();
     private final List<Person> db = new ArrayList<>();
     @Override
     public List<Person> getAllPersons() {
@@ -41,7 +40,6 @@ public class PersonServiceInMemory implements PersonService {
                 p.setLastName(person.getLastName());
                 p.setEmail(person.getEmail());
                 p.setCompanyName(person.getCompanyName());
-                p.setPosition(person.getPosition());
                 return p;
             }
         }
