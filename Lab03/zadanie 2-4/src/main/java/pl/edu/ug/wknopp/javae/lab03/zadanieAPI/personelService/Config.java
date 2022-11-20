@@ -10,17 +10,17 @@ import java.util.UUID;
 public class Config {
     @Bean
     public Person president(){
-        return new Person("Chrystal","Havoc","chavocr@yahoo.com","Mymm", "presidend");
+        return new Person("Chrystal","Havoc","chavocr@yahoo.com","Mymm");
     }
 
     @Bean
     public Person vicePresident(){
-        return new Person("Halley","Gadaud","hgadaud9@sohu.com","Oyope", "vicepresident");
+        return new Person("Halley","Gadaud","hgadaud9@sohu.com","Oyope");
     }
 
     @Bean
     public Person secretary(){
-        return new Person("Kirbie","Wrettum","kwrettumj@slideshare.net","Browsetype", "secretary");
+        return new Person("Kirbie","Wrettum","kwrettumj@slideshare.net","Browsetype");
     }
 }
 

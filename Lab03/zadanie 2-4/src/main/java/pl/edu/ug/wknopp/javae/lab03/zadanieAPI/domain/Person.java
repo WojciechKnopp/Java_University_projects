@@ -6,7 +6,6 @@ public class Person {
     private String lastName;
     private String email;
     private String companyName;
-    private String position;
 
     public Person(){
         System.out.println("Person object created");
@@ -22,13 +21,6 @@ public class Person {
         this.email = email;
         this.companyName = companyName;
     }
-    public Person(String firstName, String lastName, String email, String companyName, String position){
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.email = email;
-        this.companyName = companyName;
-        this.position = position;
-    }
 
     @Override
     public String toString() {
@@ -38,7 +30,6 @@ public class Person {
                 ", lastName='" + lastName + '\'' +
                 ", email='" + email + '\'' +
                 ", companyName='" + companyName + '\'' +
-                ", position='" + position + '\'' +
                 '}';
     }
 
@@ -82,11 +73,4 @@ public class Person {
         this.companyName = companyName;
     }
 
-    public String getPosition() {
-        return position;
-    }
-
-    public void setPosition(String position) {
-        this.position = position;
-    }
 }

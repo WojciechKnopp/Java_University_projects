@@ -16,7 +16,9 @@ public class ZadanieApplication {
 		ApplicationContext applicationContext = SpringApplication.run(ZadanieApplication.class, args);
 
 		PersonService personService = applicationContext.getBean(PersonService.class);
+		//Get people from CSV file
 		List<Person> people = Data.parseData();
+		//Add people to service
 		if(people != null){
 			for(Person person : people){
 				personService.addPerson(person);
