@@ -27,17 +27,17 @@ public class PersonController{
     }
 
     @GetMapping("/api/persons/{firstName}")
-    public Person getPerson(@PathVariable String firstName){
+    public Person getPerson(@PathVariable("firstName") String firstName){
         return personService.getPerson(firstName);
     }
 
     @PutMapping("/api/persons/{firstName}")
-    public Person updatePerson(@PathVariable String firstName,@RequestBody Person person){
+    public Person updatePerson(@PathVariable("firstName") String firstName,@RequestBody Person person){
         return personService.updatePerson(firstName, person);
     }
 
     @DeleteMapping("/api/persons/{firstName}")
-    public boolean deletePerson(@PathVariable String firstName){
+    public boolean deletePerson(@PathVariable("firstName") String firstName){
         return personService.deletePerson(firstName);
     }
 }
