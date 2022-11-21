@@ -20,7 +20,7 @@ public class HouseController{
     }
 
     @GetMapping("/api/house/{id}")
-    House getHouse(@PathVariable String id) {
+    House getHouse(@PathVariable("id") String id) {
         House foundHouse = houseService.getHouse(id);
         if(foundHouse == null){
             throw new HouseNotFoundException();
@@ -42,7 +42,7 @@ public class HouseController{
     }
 
     @PutMapping("/api/house/{id}")
-    House updateHouse(@PathVariable String id, @RequestBody House house) {
+    House updateHouse(@PathVariable("id") String id, @RequestBody House house) {
         House editedHouse = houseService.updateHouse(id, house);
         if(editedHouse == null){
             throw new HouseNotFoundException();
@@ -51,7 +51,7 @@ public class HouseController{
     }
 
     @DeleteMapping("/api/house/{id}")
-    boolean deleteHouse(@PathVariable String id) {
+    boolean deleteHouse(@PathVariable("id") String id) {
         return houseService.deleteHouse(id);
     }
 }
