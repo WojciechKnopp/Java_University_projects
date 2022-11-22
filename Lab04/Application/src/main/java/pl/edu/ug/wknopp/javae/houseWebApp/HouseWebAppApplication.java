@@ -20,9 +20,9 @@ public class HouseWebAppApplication {
 	@Bean
 	CommandLineRunner applicationRunner(@Autowired HouseService houseService) {
 		return args -> {
-			houseService.addHouse(new House(UUID.randomUUID().toString(), 1, 40, "Gdańsk, ul. Przykładowa 10", 250000.0, 20, "Przykładowy opis nr1"));
-			houseService.addHouse(new House(UUID.randomUUID().toString(), 2, 60, "Mieścin, ul. Krótka 43", 300000.0, 16, "Przykładowy opis nr2"));
-			houseService.addHouse(new House(UUID.randomUUID().toString(), 2, 85, "Kubocin, ul. Uszka 8", 425000.0, 12, "Przykładowy opis nr3"));
+			houseService.addHouse(new House(UUID.randomUUID().toString(), 1, 40, "Gdańsk, ul. Przykładowa 10", 250000.0, 2000, "Przykładowy opis nr1"));
+			houseService.addHouse(new House(UUID.randomUUID().toString(), 2, 60, "Mieścin, ul. Krótka 43", 300000.0, 1995, "Przykładowy opis nr2"));
+			houseService.addHouse(new House(UUID.randomUUID().toString(), 2, 85, "Kubocin, ul. Uszka 8", 425000.0, 2010, "Przykładowy opis nr3"));
 		};
 	}
 

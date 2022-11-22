@@ -1,0 +1,151 @@
+{
+	"info": {
+		"_postman_id": "6daf8907-84c0-44e3-be50-43c10fe624b1",
+		"name": "lab05",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24379158"
+	},
+	"item": [
+		{
+			"name": "AddHouseCorectly",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "area",
+							"value": "12",
+							"type": "text"
+						},
+						{
+							"key": "numberOfFloors",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "yearOfConstruction",
+							"value": "2000",
+							"type": "text"
+						},
+						{
+							"key": "Address",
+							"value": "Gdańsk ul. Zielona 6",
+							"type": "text"
+						},
+						{
+							"key": "price",
+							"value": "50500",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "Przykładowy opis ze spacjami i polskimi znakami",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/house/add",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"house",
+						"add"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "AddHouseWrongDataFormat",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "price",
+							"value": "napis zamiast liczby",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/house/add",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"house",
+						"add"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "EditHouseCorrectly",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "area",
+							"value": "34",
+							"type": "text"
+						},
+						{
+							"key": "numberOfFloors",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "yearOfConstruction",
+							"value": "2000",
+							"type": "text"
+						},
+						{
+							"key": "Address",
+							"value": "Gdańsk ul. Zielona 6",
+							"type": "text"
+						},
+						{
+							"key": "price",
+							"value": "50500",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "Nowy opis po edycji",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/house/edit/0c9bd23b-bf18-4ff9-94e7-13c4a2bbee62",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"house",
+						"edit",
+						"0c9bd23b-bf18-4ff9-94e7-13c4a2bbee62"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

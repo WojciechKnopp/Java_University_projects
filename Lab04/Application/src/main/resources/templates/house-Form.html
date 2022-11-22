@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>HouseForm</title>
+</head>
+<body>
+
+    <form action="#" th:action="@{/house/{action}(action=${action})}" method="post" th:object="${houseToEdit}">
+        <div>
+            <label for="Area">Metraż</label>
+            <input id="Area" type="number" min="1" th:field="*{area}"/>
+        </div>
+        <div>
+            <label for="NOF">Liczba pięter</label>
+            <input id="NOF" type="number" min="1" th:field="*{numberOfFloors}"/>
+        </div>
+        <div>
+            <label for="yoc">Rok budowy</label>
+            <input id="yoc" type="number" min="1" th:max="${#calendars.format(#calendars.createToday(), 'yyyy')}" th:field="*{yearOfConstruction}"/>
+        </div>
+        <div>
+            <label for="Address">Adres</label>
+            <input id="Address" type="text" th:field="*{address}"/>
+        </div>
+        <div>
+            <label for="Price">Cena</label>
+            <input id="Price" type="number" min="1" th:field="*{price}"/>
+        </div>
+        <div>
+            <label for="Desc">Opis</label>
+            <input id="Desc" type="text" th:field="*{description}"/>
+        </div>
+        <div>
+            <input type="submit" th:value="${button}"/>
+        </div>
+    </form>
+
+</body>
+</html>

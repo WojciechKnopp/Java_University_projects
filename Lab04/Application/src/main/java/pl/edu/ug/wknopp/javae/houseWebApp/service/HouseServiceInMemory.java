@@ -35,7 +35,7 @@ public class HouseServiceInMemory implements HouseService{
                 house.getArea(),
                 house.getAddress(),
                 house.getPrice(),
-                house.getAge(),
+                house.getYearOfConstruction(),
                 house.getDescription()
         );
         db.add(createdHouse);
@@ -52,7 +52,7 @@ public class HouseServiceInMemory implements HouseService{
         if(house.getArea() != null) updatedHouse.setArea(house.getArea());
         if(house.getAddress() != null) updatedHouse.setAddress(house.getAddress());
         if(house.getPrice() != null) updatedHouse.setPrice(house.getPrice());
-        if(house.getAge() != null) updatedHouse.setAge(house.getAge());
+        if(house.getYearOfConstruction() != null) updatedHouse.setYearOfConstruction(house.getYearOfConstruction());
         if(house.getDescription() != null) updatedHouse.setDescription(house.getDescription());
         return updatedHouse;
     }

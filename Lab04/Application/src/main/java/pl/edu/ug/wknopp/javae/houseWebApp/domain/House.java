@@ -6,20 +6,20 @@ public class House {
     private Integer area;
     private String address;
     private Double price;
-    private Integer age;
+    private Integer yearOfConstruction;
     private String description;
 
     public House(){
         System.out.println("House object created");
     }
 
-    public House(String id, Integer numberOfFloors, Integer area, String address, Double price, Integer age, String description){
+    public House(String id, Integer numberOfFloors, Integer area, String address, Double price, Integer yearOfConstruction, String description){
         this.id = id;
         this.numberOfFloors = numberOfFloors;
         this.area = area;
         this.address = address;
         this.price = price;
-        this.age = age;
+        this.yearOfConstruction = yearOfConstruction;
         this.description = description;
         System.out.println("House object created");
     }
@@ -64,12 +64,12 @@ public class House {
         this.price = price;
     }
 
-    public Integer getAge() {
-        return age;
+    public Integer getYearOfConstruction() {
+        return yearOfConstruction;
     }
 
-    public void setAge(Integer age) {
-        this.age = age;
+    public void setYearOfConstruction(Integer yearOfConstruction) {
+        this.yearOfConstruction = yearOfConstruction;
     }
 
     public String getDescription() {

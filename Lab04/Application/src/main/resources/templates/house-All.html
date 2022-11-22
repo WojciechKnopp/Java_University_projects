@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>AllHouses</title>
+</head>
+<body>
+    <header>
+        <h1>Witaj w aplikacji o domach</h1>
+    </header>
+
+    <div>
+        <a th:href="@{/house/form}">Dodaj nowy dom</a>
+        <div th:each="house : ${allHouses}">
+            <table>
+                <tr>
+                    <th>ID</th>
+                    <th>Metraż</th>
+                    <th>Liczba pięter</th>
+                    <th>Rok budowy</th>
+                    <th>Adres</th>
+                    <th>Cena</th>
+                </tr>
+                <tr>
+                    <td th:text="${house.getId()}"></td>
+                    <td th:text="${house.getArea()}"></td>
+                    <td th:text="${house.getNumberOfFloors()}"></td>
+                    <td th:text="${house.getYearOfConstruction()}"></td>
+                    <td th:text="${house.getAddress()}"></td>
+                    <td th:text="${house.getPrice()}"></td>
+                </tr>
+                <tr>
+                    <td colspan="6" th:text="${house.getDescription()}"></td>
+                </tr>
+                <tr>
+                    <td colspan="3"><a th:href="@{/house/form/{id}(id=${house.getId()})}">Edit</a></td>
+                    <td colspan="3"><a th:href="@{/house/delete/{id}(id=${house.getId()})}">Delete</a></td>
+                </tr>
+            </table>
+
+        </div>
+    </div>
+
+</body>
+</html>

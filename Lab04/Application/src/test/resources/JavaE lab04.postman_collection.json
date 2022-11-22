@@ -83,7 +83,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"price\": 160000.0,\n    \"age\": 35,\n    \"description\": \"Przykładowy opis dodany w trakcie modyfikacji istniejącego domu.\"\n}",
+					"raw": "{\n    \"price\": 160000.0,\n    \"yearOfConstruction\": 35,\n    \"description\": \"Przykładowy opis dodany w trakcie modyfikacji istniejącego domu.\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
