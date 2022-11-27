@@ -6,6 +6,8 @@
 </head>
 <body>
 
+    <h2><span th:text="${button}"/> Dom</h2>
+
     <form action="#" th:action="@{/house/{action}(action=${action})}" method="post" th:object="${houseToEdit}">
         <div>
             <label for="Area">Metraż</label>
