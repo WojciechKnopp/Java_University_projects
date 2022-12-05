@@ -1,9 +1,7 @@
 package pl.edu.ug.wknopp.javae.DBDemo.domain;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.List;
 
 @Entity
 public class House {
@@ -12,10 +10,12 @@ public class House {
     private long id;
     private Integer numberOfFloors;
     private Integer area;
-    private String address;
+    private Address address;
     private Double price;
     private Integer yearOfConstruction;
     private String description;
+    private ConstructionCompany constructionCompany;
+    private List<Person> owners;
 
     public House(){
         System.out.println("House object created");
@@ -47,11 +47,12 @@ public class House {
         this.area = area;
     }
 
-    public String getAddress() {
+    @OneToOne
+    public Address getAddress() {
         return address;
     }
 
-    public void setAddress(String address) {
+    public void setAddress(Address address) {
         this.address = address;
     }
 
@@ -79,4 +80,21 @@ public class House {
         this.description = description;
     }
 
+    @ManyToOne
+    public ConstructionCompany getConstructionCompany() {
+        return constructionCompany;
+    }
+
+    public void setConstructionCompany(ConstructionCompany constructionCompany) {
+        this.constructionCompany = constructionCompany;
+    }
+
+    @ManyToMany
+    public List<Person> getOwners() {
+        return owners;
+    }
+
+    public void setOwners(List<Person> owners) {
+        this.owners = owners;
+    }
 }
