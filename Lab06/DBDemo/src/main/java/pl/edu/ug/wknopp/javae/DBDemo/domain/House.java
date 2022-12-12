@@ -21,6 +21,20 @@ public class House {
         System.out.println("House object created");
     }
 
+    public House(Integer numberOfFloors, Integer area, Double price, Integer yearOfConstruction) {
+        this.numberOfFloors = numberOfFloors;
+        this.area = area;
+        this.price = price;
+        this.yearOfConstruction = yearOfConstruction;
+    }
+    public House(Integer numberOfFloors, Integer area, Double price, Integer yearOfConstruction, String description) {
+        this.numberOfFloors = numberOfFloors;
+        this.area = area;
+        this.price = price;
+        this.yearOfConstruction = yearOfConstruction;
+        this.description = description;
+    }
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     public long getId() {
@@ -80,7 +94,7 @@ public class House {
         this.description = description;
     }
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.PERSIST)
     public ConstructionCompany getConstructionCompany() {
         return constructionCompany;
     }
@@ -96,5 +110,20 @@ public class House {
 
     public void setOwners(List<Person> owners) {
         this.owners = owners;
+    }
+
+    @Override
+    public String toString() {
+        return "House{" +
+                "id=" + id +
+                ", numberOfFloors=" + numberOfFloors +
+                ", area=" + area +
+                ", address=" + address +
+                ", price=" + price +
+                ", yearOfConstruction=" + yearOfConstruction +
+                ", description='" + description + '\'' +
+                ", constructionCompany=" + constructionCompany +
+                ", owners=" + owners +
+                '}';
     }
 }
