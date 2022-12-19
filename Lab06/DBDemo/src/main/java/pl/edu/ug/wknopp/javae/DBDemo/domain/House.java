@@ -35,6 +35,17 @@ public class House {
         this.description = description;
     }
 
+    public House(Integer numberOfFloors, Integer area, Double price, Integer yearOfConstruction, ConstructionCompany constructionCompany, List<Person> owners, String description) {
+        this.numberOfFloors = numberOfFloors;
+        this.area = area;
+        this.price = price;
+        this.yearOfConstruction = yearOfConstruction;
+        this.description = description;
+        this.constructionCompany = constructionCompany;
+        this.owners = owners;
+    }
+
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     public long getId() {
@@ -61,7 +72,7 @@ public class House {
         this.area = area;
     }
 
-    @OneToOne
+    @OneToOne(fetch = FetchType.EAGER)
     public Address getAddress() {
         return address;
     }
@@ -103,7 +114,7 @@ public class House {
         this.constructionCompany = constructionCompany;
     }
 
-    @ManyToMany
+    @ManyToMany(cascade = CascadeType.PERSIST, fetch = FetchType.LAZY)
     public List<Person> getOwners() {
         return owners;
     }

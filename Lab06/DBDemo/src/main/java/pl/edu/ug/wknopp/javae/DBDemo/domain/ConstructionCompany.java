@@ -73,12 +73,25 @@ public class ConstructionCompany {
         this.phoneNumber = phoneNumber;
     }
 
-    @OneToMany(mappedBy = "constructionCompany")
+    @OneToMany(mappedBy = "constructionCompany", fetch = FetchType.LAZY)
     public List<House> getHouses() {
         return houses;
     }
 
     public void setHouses(List<House> houses) {
         this.houses = houses;
+    }
+
+    @Override
+    public String toString() {
+        return "ConstructionCompany{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", nip='" + nip + '\'' +
+                ", regon='" + regon + '\'' +
+                ", email='" + email + '\'' +
+                ", phoneNumber='" + phoneNumber + '\'' +
+                ", houses=" + houses +
+                '}';
     }
 }
