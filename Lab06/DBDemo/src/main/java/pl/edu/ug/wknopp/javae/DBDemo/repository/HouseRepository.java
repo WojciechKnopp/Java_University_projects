@@ -20,4 +20,8 @@ public interface HouseRepository extends CrudRepository<House, Long> {
     List<House> findWithOwnersCheaperThan(double price);
     @Query(nativeQuery = true,value = "SELECT * FROM House")
     List<House> findAllHouses();
+
+    //n+1 queries
+    @Query("SELECT h FROM House h join fetch h.address")
+    List<House> getAllHousesWithAddress();
 }

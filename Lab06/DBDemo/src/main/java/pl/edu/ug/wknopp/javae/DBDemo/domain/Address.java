@@ -17,7 +17,13 @@ public class Address {
     private String postalCode;
 
     public Address(){
-        System.out.println("Address object created");
+    }
+
+    public Address(String street, String city, String houseNumber, String country) {
+        this.street = street;
+        this.city = city;
+        this.houseNumber = houseNumber;
+        this.country = country;
     }
 
     @Id

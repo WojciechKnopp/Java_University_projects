@@ -18,7 +18,6 @@ public class House {
     private List<Person> owners;
 
     public House(){
-        System.out.println("House object created");
     }
 
     public House(Integer numberOfFloors, Integer area, Double price, Integer yearOfConstruction) {
@@ -72,7 +71,7 @@ public class House {
         this.area = area;
     }
 
-    @OneToOne(fetch = FetchType.EAGER)
+    @OneToOne(cascade = CascadeType.PERSIST,fetch = FetchType.EAGER)
     public Address getAddress() {
         return address;
     }

@@ -18,6 +18,7 @@ public class DbDemoApplication {
 	public CommandLineRunner appSetup(@Autowired HouseService houseService){
 		return args -> {
 			houseService.learning();
+			houseService.lab10();
 		};
 
 	}

@@ -1,8 +1,7 @@
 package pl.edu.ug.wknopp.javae.DBDemo.service;
 
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.PostMapping;
+import pl.edu.ug.wknopp.javae.DBDemo.domain.Address;
 import pl.edu.ug.wknopp.javae.DBDemo.domain.ConstructionCompany;
 import pl.edu.ug.wknopp.javae.DBDemo.domain.House;
 import pl.edu.ug.wknopp.javae.DBDemo.domain.Person;
@@ -78,6 +77,10 @@ public class HouseService {
         houseRepository.save(h2);
         houseRepository.save(h3);
 
+        h1.setAddress(new Address("Kosmonautow", "Wroclaw", "12", "Poland"));
+        h2.setAddress(new Address("Andrzejow", "Krakow", "1", "Poland"));
+        h3.setAddress(new Address("Nowa", "Hel", "12", "Poland"));
+
         Optional<House> foundHouse = houseRepository.findById(h1.getId());
 
         House h4 = new House(5, 250, 250000.0, 2015, "Z firmą budowlaną");
@@ -85,7 +88,7 @@ public class HouseService {
         h4.setConstructionCompany(c1);
         houseRepository.save(h4);
 
-        houseRepository.deleteById(h4.getId());
+//        houseRepository.deleteById(h4.getId());
 
         System.out.println(houseRepository.findByAreaOrNumberOfFloors(100, 4));
 
@@ -98,5 +101,24 @@ public class HouseService {
         houseRepository.save(savedHouse1);
 
         System.out.println(houseRepository.findWithOwnersCheaperThan(150000));
+    }
+
+    public void lab10(){
+        System.out.println("Lab10");
+//        n+1 queries
+//        for(House h : houseRepository.findAllHouses()){
+//            System.out.println(h.getAddress());
+//        }
+        for(House h : houseRepository.getAllHousesWithAddress()){
+            System.out.println(h.getAddress());
+        }
+
+        //Optional usages
+        houseRepository.findById(1L).ifPresent(System.out::println);
+        houseRepository.findById(8L).ifPresentOrElse(System.out::println, () -> System.out.println("Nie znaleziono"));
+        House h1 = houseRepository.findById(1L).orElse(null);
+//        House h2 = houseRepository.findById(8L).orElseThrow(RuntimeException::new);
+        Optional<House> optHouse = houseRepository.findById(1L);
+        Address a1 = optHouse.map(House::getAddress).orElse(null);
     }
 }
