@@ -1,12 +1,13 @@
 package pl.edu.ug.wknopp.javae.DBDemo.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.util.List;
 
 @Entity
 public class House {
 
-    @Id
     private long id;
     private Integer numberOfFloors;
     private Integer area;

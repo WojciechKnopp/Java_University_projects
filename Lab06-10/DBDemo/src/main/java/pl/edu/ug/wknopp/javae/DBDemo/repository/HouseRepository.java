@@ -10,6 +10,7 @@ import java.util.List;
 @Repository
 public interface HouseRepository extends CrudRepository<House, Long> {
     List<House> findByAreaOrNumberOfFloors(int area, int numberOfFloors);
+    List<House> findByAreaAndNumberOfFloors(int area, int numberOfFloors);
     List<House> findByPriceLessThanEqual(double price);
     List<House> findByDescriptionNotNull();
     @Query("SELECT h FROM House h WHERE h.yearOfConstruction > ?1")

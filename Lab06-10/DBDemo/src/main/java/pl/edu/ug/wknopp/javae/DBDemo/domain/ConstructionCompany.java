@@ -3,20 +3,20 @@ package pl.edu.ug.wknopp.javae.DBDemo.domain;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @JsonIgnoreProperties("houses")
 @Entity
 public class ConstructionCompany {
 
-    @Id
     private long id;
     private String name;
     private String nip;
     private String regon;
     private String email;
     private String phoneNumber;
-    private List<House> houses;
+    private List<House> houses = new ArrayList<>();
 
     public ConstructionCompany(){
         System.out.println("ConstructionCompany object created");

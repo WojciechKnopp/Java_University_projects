@@ -73,6 +73,13 @@ public class HouseService {
         House h2 = new House(3, 150, 150000.0, 2005, "House 2");
         House h3 = new House(4, 200, 200000.0, 2010);
 
+        Person p1 = new Person("Jan", "Kowalski", "Jan@gmail.com", "123456789");
+        Person p2 = new Person("Adam", "Nowak", "Adam@gmail.com", "987654321");
+        List<Person> persons = new ArrayList<>();
+        persons.add(p1);
+        persons.add(p2);
+        h1.setOwners(persons);
+
         House savedHouse1 = houseRepository.save(h1);
         houseRepository.save(h2);
         houseRepository.save(h3);
@@ -86,21 +93,18 @@ public class HouseService {
         House h4 = new House(5, 250, 250000.0, 2015, "Z firmą budowlaną");
         ConstructionCompany c1 = new ConstructionCompany("Firma Budowlana 1");
         h4.setConstructionCompany(c1);
-        houseRepository.save(h4);
+        House houseWithCompany = houseRepository.save(h4);
 
-//        houseRepository.deleteById(h4.getId());
+
+        houseRepository.deleteById(h4.getId());
 
         System.out.println(houseRepository.findByAreaOrNumberOfFloors(100, 4));
 
-        Person p1 = new Person("Jan", "Kowalski", "Jan@gmail.com", "123456789");
-        Person p2 = new Person("Adam", "Nowak", "Adam@gmail.com", "987654321");
-        List<Person> persons = new ArrayList<>();
-        persons.add(p1);
-        persons.add(p2);
-        savedHouse1.setOwners(persons); //PROBLEM (Nie zapisuje ludzi do bazy)
-        houseRepository.save(savedHouse1);
 
         System.out.println(houseRepository.findWithOwnersCheaperThan(150000));
+
+        System.out.println(houseRepository.findByAreaAndNumberOfFloors(200, 4));
+
     }
 
     public void lab10(){

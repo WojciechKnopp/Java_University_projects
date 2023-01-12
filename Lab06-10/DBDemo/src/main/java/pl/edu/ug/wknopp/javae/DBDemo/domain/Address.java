@@ -8,7 +8,6 @@ import javax.persistence.Id;
 @Entity
 public class Address {
 
-    @Id
     private long id;
     private String street;
     private String city;
