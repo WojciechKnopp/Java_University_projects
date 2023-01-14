@@ -108,14 +108,14 @@ public class HouseService {
     }
 
     public void lab10(){
-        System.out.println("Lab10");
+        System.out.println("///////////////////////// Lab10 ///////////////////////////");
 //        n+1 queries
-//        for(House h : houseRepository.findAllHouses()){
-//            System.out.println(h.getAddress());
-//        }
-        for(House h : houseRepository.getAllHousesWithAddress()){
+        for(House h : houseRepository.findAll()){
             System.out.println(h.getAddress());
         }
+//        for(House h : houseRepository.getAllHousesWithAddress()){
+//            System.out.println(h.getAddress());
+//        }
 
         //Optional usages
         houseRepository.findById(1L).ifPresent(System.out::println);
@@ -124,5 +124,12 @@ public class HouseService {
 //        House h2 = houseRepository.findById(8L).orElseThrow(RuntimeException::new);
         Optional<House> optHouse = houseRepository.findById(1L);
         Address a1 = optHouse.map(House::getAddress).orElse(null);
+        System.out.println(a1);
+        optHouse.filter(h -> h.getArea() > 100).ifPresentOrElse(
+                System.out::println, () -> System.out.println("metraż mniejszy niż 100"));
+
+        Optional<House> optHouse2 = houseRepository.findById(20L);
+        House fromOptional = optHouse2.orElse(new House());
+        System.out.println(fromOptional);
     }
 }
