@@ -110,12 +110,12 @@ public class HouseService {
     public void lab10(){
         System.out.println("///////////////////////// Lab10 ///////////////////////////");
 //        n+1 queries
-        for(House h : houseRepository.findAll()){
-            System.out.println(h.getAddress());
-        }
-//        for(House h : houseRepository.getAllHousesWithAddress()){
+//        for(House h : houseRepository.findAll()){
 //            System.out.println(h.getAddress());
 //        }
+        for(House h : houseRepository.getAllHousesWithAddress()){
+            System.out.println(h.getAddress());
+        }
 
         //Optional usages
         houseRepository.findById(1L).ifPresent(System.out::println);
