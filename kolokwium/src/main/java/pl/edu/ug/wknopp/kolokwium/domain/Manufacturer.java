@@ -55,7 +55,6 @@ public class Manufacturer {
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", nip='" + nip + '\'' +
-                ", createdPacks=" + createdPacks +
                 '}';
     }
 }

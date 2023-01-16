@@ -10,6 +10,7 @@ import javax.transaction.Transactional;
 import java.util.Optional;
 
 @Service
+@Transactional
 public class PackOfCardsService {
 
     private final PackOfCardsRepository packOfCardsRepository;
@@ -57,10 +58,19 @@ public class PackOfCardsService {
 
         Manufacturer manufacturer = new Manufacturer();
         manufacturer.setName("Producent");
+
         packOfCards.setManufacturer(manufacturer);
 
         packOfCardsRepository.save(packOfCards);
 
+
+        PackOfCards p2 = new PackOfCards();
+        p2.setTitle("Test2");
+        p2.setFullPack(false);
+
+        packOfCardsRepository.save(p2);
+
+        System.out.println(packOfCardsRepository.getAllFullPacksWithTheme());
         System.out.println(packOfCardsRepository.getAllCardsWithManufacturers());
     }
 }
