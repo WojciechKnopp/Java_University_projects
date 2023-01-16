@@ -37,7 +37,7 @@ public class PackOfCards {
 //        this.manufacturer = manufacturer;
 //    }
 
-    public boolean isFullPack() {
+    public boolean getFullPack() {
         return fullPack;
     }
 
