@@ -31,7 +31,7 @@ public class PackOfCardsService {
         PackOfCards updatedPackOfCards = packOfCardsRepository.findById(id).orElse(null);
         if (updatedPackOfCards != null) {
             updatedPackOfCards.setTitle(packOfCards.getTitle());
-            updatedPackOfCards.setFullPack(packOfCards.getFullPack());
+            updatedPackOfCards.setFullPack(packOfCards.isFullPack());
             return packOfCardsRepository.save(updatedPackOfCards);
         }
         return null;
