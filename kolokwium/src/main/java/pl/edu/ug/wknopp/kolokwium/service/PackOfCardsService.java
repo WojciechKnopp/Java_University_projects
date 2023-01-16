@@ -1,9 +1,12 @@
 package pl.edu.ug.wknopp.kolokwium.service;
 
 import org.springframework.stereotype.Service;
+import pl.edu.ug.wknopp.kolokwium.domain.Manufacturer;
 import pl.edu.ug.wknopp.kolokwium.domain.PackOfCards;
+import pl.edu.ug.wknopp.kolokwium.domain.Theme;
 import pl.edu.ug.wknopp.kolokwium.repository.PackOfCardsRepository;
 
+import javax.transaction.Transactional;
 import java.util.Optional;
 
 @Service
@@ -41,5 +44,23 @@ public class PackOfCardsService {
         packOfCardsRepository.deleteById(id);
         Optional<PackOfCards> packOfCards = packOfCardsRepository.findById(id);
         return packOfCards.isEmpty();
+    }
+
+    public void presentation(){
+        PackOfCards packOfCards = new PackOfCards();
+        packOfCards.setTitle("Test");
+        packOfCards.setFullPack(true);
+
+        Theme theme = new Theme();
+        theme.setName("Rośliny");
+        packOfCards.setTheme(theme);
+
+        Manufacturer manufacturer = new Manufacturer();
+        manufacturer.setName("Producent");
+        packOfCards.setManufacturer(manufacturer);
+
+        packOfCardsRepository.save(packOfCards);
+
+        System.out.println(packOfCardsRepository.getAllCardsWithManufacturers());
     }
 }

@@ -8,6 +8,9 @@ import java.util.List;
 
 public interface PackOfCardsRepository extends CrudRepository<PackOfCards, Long> {
 
-    @Query("select p from PackOfCards p join fetch Manufacturer")
+    @Query("select p from PackOfCards p join fetch p.manufacturer")
     List<PackOfCards> getAllCardsWithManufacturers();
+
+    @Query("select p from PackOfCards p join Theme t on p.theme = t where p.fullPack = true")
+    List<PackOfCards> getAllFullPacksWithTheme();
 }
