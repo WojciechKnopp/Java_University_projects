@@ -8,9 +8,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.web.reactive.function.client.WebClient;
 
-// Switch Web to Webflux in build.gradle for it to work
+// Comment Tomcat in build.gradle
 // (Changing Tomcat to Netty)
-// And commens application.properties
+// And comment application.properties or have database server running
 
 @SpringBootApplication
 public class ReactiveDemoApp{
