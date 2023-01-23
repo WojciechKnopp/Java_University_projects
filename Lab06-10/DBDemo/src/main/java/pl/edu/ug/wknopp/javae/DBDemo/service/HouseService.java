@@ -11,6 +11,8 @@ import javax.transaction.Transactional;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 @Service
 @Transactional
@@ -131,5 +133,17 @@ public class HouseService {
         Optional<House> optHouse2 = houseRepository.findById(20L);
         House fromOptional = optHouse2.orElse(new House());
         System.out.println(fromOptional);
+    }
+
+    public void lab11(){
+        List<House> houseList = houseRepository.findAllHouses();
+        System.out.println("///////////////////////// Lab11 ///////////////////////////");
+        houseList.stream().forEach(System.out::println);
+        houseList.stream().filter(h -> h.getArea() > 100).forEach(System.out::println);
+        List<Address> addressList = houseList.stream().map(House::getAddress).collect(Collectors.toList());
+        addressList.forEach(System.out::println);
+        House first = houseList.stream().findFirst().orElse(null);
+        System.out.println(first);
+
     }
 }

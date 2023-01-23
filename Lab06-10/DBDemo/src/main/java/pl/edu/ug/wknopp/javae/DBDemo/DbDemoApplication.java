@@ -19,6 +19,7 @@ public class DbDemoApplication {
 		return args -> {
 			houseService.learning();
 			houseService.lab10();
+			houseService.lab11();
 		};
 
 	}
