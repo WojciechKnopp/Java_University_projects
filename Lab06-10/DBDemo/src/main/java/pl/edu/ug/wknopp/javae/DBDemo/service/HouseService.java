@@ -12,7 +12,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 @Service
 @Transactional
@@ -24,8 +23,7 @@ public class HouseService {
     }
 
     public House getHouse(Long id) {
-        Optional<House> h1 = houseRepository.findById(id);
-        return h1.orElse(null);
+        return houseRepository.findById(id).orElseThrow(HouseNotFoundException::new);
     }
 
     public List<House> getAllHouses() {
@@ -46,25 +44,22 @@ public class HouseService {
     }
 
     public House updateHouse(Long id, House house){
-        Optional<House> updatedHouse = houseRepository.findById(id);
-        if(updatedHouse.isEmpty()){
-            return null;
-        }
-        if(house.getNumberOfFloors() != null) updatedHouse.get().setNumberOfFloors(house.getNumberOfFloors());
-        if(house.getArea() != null) updatedHouse.get().setArea(house.getArea());
-        if(house.getAddress() != null) updatedHouse.get().setAddress(house.getAddress());
-        if(house.getPrice() != null) updatedHouse.get().setPrice(house.getPrice());
-        if(house.getYearOfConstruction() != null) updatedHouse.get().setYearOfConstruction(house.getYearOfConstruction());
-        if(house.getDescription() != null) updatedHouse.get().setDescription(house.getDescription());
-        if(house.getConstructionCompany() != null) updatedHouse.get().setConstructionCompany(house.getConstructionCompany());
-        if(house.getOwners() != null) updatedHouse.get().setOwners(house.getOwners());
-        return updatedHouse.get();
+        House houseToUpdate = houseRepository.findById(id).orElseThrow(HouseNotFoundException::new);
+
+        houseToUpdate.setNumberOfFloors(house.getNumberOfFloors());
+        houseToUpdate.setArea(house.getArea());
+        houseToUpdate.setPrice(house.getPrice());
+        houseToUpdate.setYearOfConstruction(house.getYearOfConstruction());
+        houseToUpdate.setConstructionCompany(house.getConstructionCompany());
+        houseToUpdate.setOwners(house.getOwners());
+        houseToUpdate.setDescription(house.getDescription());
+        return houseToUpdate;
     }
 
     public boolean deleteHouse(Long id){
-        houseRepository.deleteById(id);
-        Optional<House> deletedHouse = houseRepository.findById(id);
-        return deletedHouse.isEmpty();
+        House houseToDelete = houseRepository.findById(id).orElseThrow(HouseNotFoundException::new);
+        houseRepository.delete(houseToDelete);
+        return houseRepository.findById(id).isEmpty();
     }
 
 
