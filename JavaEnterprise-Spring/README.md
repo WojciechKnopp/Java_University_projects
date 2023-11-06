@@ -1,4 +1,4 @@
-**Repository with java and spring projects created at the university.**
+**Java Enterprise, Spring, Gradle.**
 
 Lab01 - simple java exercises  
 Lab02 - first gradle usage  
